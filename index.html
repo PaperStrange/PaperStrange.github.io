@@ -278,6 +278,234 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://PaperStrange.github.io/2019/02/10/Data Mine1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ziqiang Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello, world :)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/10/Data Mine1/" itemprop="url">a initial explore for Elo Merchant Category Recommendation, a kaggle competition</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-10T19:33:04+08:00">
+                2019-02-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-10T19:33:04+08:00">
+                2019-02-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">日常随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/10/Data Mine1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/10/Data Mine1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/10/Data Mine1/" class="leancloud_visitors" data-flag-title="a initial explore for Elo Merchant Category Recommendation, a kaggle competition">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  752
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Competition-Introduction"><a href="#Competition-Introduction" class="headerlink" title="Competition Introduction"></a>Competition Introduction</h2><p>!Figure here<br>In Elo Merchant Category Recommendation <a href="https://www.kaggle.com/c/elo-merchant-category-recommendation" target="_blank" rel="noopener">competition</a>, kagglers will develop algorithms to identify and serve the most relevant opportunities to individuals, by uncovering signal in <code>customer loyalty</code>, which will improve customers’ lives and help Elo reduce unwanted campaigns as well as create the right experience for customers.</p>
+<h2 id="About-this-blog"><a href="#About-this-blog" class="headerlink" title="About this blog"></a>About this blog</h2><p>Using a <a href="https://github.com/Microsoft/LightGBM" target="_blank" rel="noopener">LightGBM</a> model, this blog tries to dive into initial explore of training and testing dataset. New features are built by extracting numberical feat from <code>first active month</code> in order to recover some information from the time series.</p>
+<h2 id="Blog-Content"><a href="#Blog-Content" class="headerlink" title="Blog  Content"></a>Blog  Content</h2><ol>
+<li><a href="#1">Data properties analysis</a></li>
+<li><a href="#2">Feature engineering</a></li>
+<li><a href="#3">Modeling result analysis</a></li>
+</ol>
+<p><a id="1"></a> <br></p>
+<h3 id="1-Data-properties-analysis"><a href="#1-Data-properties-analysis" class="headerlink" title="1. Data properties analysis"></a>1. Data properties analysis</h3><p>At te beginning, a good understanding of data is always aprreciatable. In this blog we only consider two datasets: training dataset and testing dataset. By asking serveral questions, here is what i find:</p>
+<h4 id="Question-1-1-what-is-the-number-of-rows-and-columns-in-this-datasets-how-about-each-data-type-of-this-datasets-columns"><a href="#Question-1-1-what-is-the-number-of-rows-and-columns-in-this-datasets-how-about-each-data-type-of-this-datasets-columns" class="headerlink" title="Question 1.1: what is the number of rows and columns in this datasets? how about each data type of this datasets columns?"></a>Question 1.1: what is the number of rows and columns in this datasets? how about each data type of this datasets columns?</h4><p>A: training dataset has 201917 rows and 6 columns, testing dataset has 123623 rows and 5 columns. Furthermore, among training dataset, and testing dataset, apart from two categorical column feat “first_active_month”, “card_id”, the rest column feats are all stored in numberical type</p>
+<h4 id="Question-1-2-What-about-missing-value-distribution-Is-there-any-duplication-of-two-datasets-along-with-“card-id”"><a href="#Question-1-2-What-about-missing-value-distribution-Is-there-any-duplication-of-two-datasets-along-with-“card-id”" class="headerlink" title="Question 1.2: What about missing value distribution? Is there any duplication of two datasets along with “card_id”?"></a>Question 1.2: What about missing value distribution? Is there any duplication of two datasets along with “card_id”?</h4><p><img src="github link" alt="Missing value distribution of training dataset and testing dataset"><br>A: Missing value distribution is shown in the figure above. Fortunately there is no duplication in no matter training dataset nor testing dataset, which means each id in “card_id” is unique.</p>
+<h4 id="Question-1-3-Is-there-any-relationship-between-column-feat-“target”-and-rest-column-feats-of-training-dataset-Is-there-any-outliers-in-column-feat-“target”"><a href="#Question-1-3-Is-there-any-relationship-between-column-feat-“target”-and-rest-column-feats-of-training-dataset-Is-there-any-outliers-in-column-feat-“target”" class="headerlink" title="Question 1.3: Is there any relationship between column feat “target” and rest column feats of training dataset? Is there any outliers in column feat “target”?"></a>Question 1.3: Is there any relationship between column feat “target” and rest column feats of training dataset? Is there any outliers in column feat “target”?</h4><p><img src="github link" alt="correlation coefficient heatmap of each column feat"><br><img src="github link" alt="distribution of &quot;target&quot;"><br>A: It seems no relationship is found from the above figure. But be cautious, cause this heatmap is generated by calculating correlation coefficient, score that near the zero only indicates there is no linear relationship. Meanwhile, 2207 outliers are found shown in the most left blue point in the second figure above.</p>
+<p><a id="2"></a> <br></p>
+<h3 id="2-Feature-engineering"><a href="#2-Feature-engineering" class="headerlink" title="2. Feature engineering"></a>2. Feature engineering</h3><p>As discussed above, the feats in two datasets is far more sufficient to obtain a good submit score. For simplicity, new numberical feats are added by extraction from “first_active_month” using python package datetime. In detail, hour, day, month and year of each time data are obtained. What’s more, convert hour to string such as “morning” and convert month to string such as “March” are applied for further analysis below.</p>
+<p><a id="3"></a> <br></p>
+<h3 id="3-Modeling-result-analysis"><a href="#3-Modeling-result-analysis" class="headerlink" title="3. Modeling result analysis"></a>3. Modeling result analysis</h3><p>Same as what i did in the first section, serveral questions are supposed to be reviewed and answered in this step. Generally, the more <code>good</code> questions are reviewed, the better understanding of model evaluation you gain. </p>
+<p><img src="github link" alt="Feature importance"><br><img src="github link" alt="Part of feature importance extracted from &quot;first_active_month&quot;"><br>Take a further look at the importance figure above, “first_active_month_elapsed_time_today” contributes most to the model prediction, while “first_active_month_monthsession_January” contributes least. Among the feat extracted from date data shown in the second figure above, “first_active_month_elapsed_time_today” gains the most importance while the “first_active_month_monthsession_January” gain the least importance as well, which means valuable information hidden in “first_active_month”. Isn’t it a intersting finding? </p>
+<p>When we compare distribution training dataset and testing dataset of the same feat, here comes new findings. “first_active_month_elapsed_time_today”, “first_active_month_elapsed_time_specific” shows measurable different distribution between training data and testing data, among which the first one is the feature picked by the above two questions. On the onther hand, the left feats couldn’t provide considerable difference on data distribution between two datasets, which is relatively consistent with the result shown in feat importance figure. More details could refer to my github source code <a href="https://github.com/PaperStrange/Udacity_records.git" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next?"></a>What’s next?</h2><p>Up to now, we have briefly went through the whole data processing procedure. For me, next i’like to add more feats by considering other files provided by this competition. Also, it is advisable for you to start a mining journal following exsited kernel which is listed in the below references. By the way, there is a few questions that i want to share with you which i think maybe desirble to be devoted to:</p>
+<ul>
+<li><p>How many feats are suitable? Generally, the more feats you obtain may not guarantee higer submit score you expect</p>
+</li>
+<li><p>For this model, missing value would not lead to the failure of LightGBM. If using LightGBM, how to deal with missing values? Imputer or just keep by?</p>
+</li>
+</ul>
+<p>Hope everyone has a magic data miner time! :)</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><p><a href="https://www.kaggle.com/chauhuynh/my-first-kernel-3-699/" target="_blank" rel="noopener">My first kernel (3.699) by Chau Ngoc Huynh</a></p>
+</li>
+<li><p><a href="https://www.kaggle.com/denzo123/a-closer-look-at-date-variables" target="_blank" rel="noopener">A Closer Look at Date Variables by Robin Denz</a></p>
+</li>
+<li><p><a href="https://www.kaggle.com/konradb/lgb-fe-lb-3-707" target="_blank" rel="noopener">LGB + FE (LB 3.707) by Konrad Banachewicz</a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://PaperStrange.github.io/2018/09/03/Python learning list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -325,8 +553,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-02T19:56:37+08:00">
-                2018-11-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-06T22:52:12+08:00">
+                2019-02-06
               </time>
             
           </span>
@@ -611,8 +839,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T11:34:26+08:00">
-                2018-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-06T22:47:14+08:00">
+                2019-02-06
               </time>
             
           </span>
@@ -683,7 +911,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  144
+                  56
                 </span>
               
 
@@ -710,9 +938,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
         
           
-            <h1 id="Before-starting…"><a href="#Before-starting…" class="headerlink" title="Before starting…"></a>Before starting…</h1><p>As we know, initial lanuch of a garlic partice always takes part in hours and hours typing, questioning and typing, of course, among a hand of coffee branches with a black guy in a sofa(Actually, an alarm clock can never be more disgusting…)</p>
-<p>Now its my turn to give birth to my first blog, well, and the last bag of coffe :)</p>
-<h1 id="What-you-may-want-to-know-in-this-blog"><a href="#What-you-may-want-to-know-in-this-blog" class="headerlink" title="What you may want to know in this blog"></a>What you may want to know in this blog</h1><p>This particle foucuses on the blog trip accompanied with <code>Mrs.Hexo</code><br>and <code>Mr.Github</code>. The targets of this trip include <code>Windows</code> land and <code>Linux</code> land. Now, its time for traveling! ~我们的征途是星辰大海 :)</p>
+            <h1 id="Before-starting…"><a href="#Before-starting…" class="headerlink" title="Before starting…"></a>Before starting…</h1><p>Now its my turn to give birth to my first blog, well, and the last bag of coffe :)</p>
+<h1 id="What-you-may-want-to-know-in-this-blog"><a href="#What-you-may-want-to-know-in-this-blog" class="headerlink" title="What you may want to know in this blog"></a>What you may want to know in this blog</h1><p>~</p>
 <h1 id="Traveling-Maps"><a href="#Traveling-Maps" class="headerlink" title="Traveling Maps"></a>Traveling Maps</h1><h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><ul>
 <li>Acquirements<ul>
 <li>Windows</li>
@@ -731,8 +958,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 </li>
 <li>Conclusions and References</li>
 </ul>
-<h2 id="Contact-author"><a href="#Contact-author" class="headerlink" title="Contact author"></a>Contact author</h2><p>E-mail: 163 MailBox()</p>
-<h1 id="Lets-Go"><a href="#Lets-Go" class="headerlink" title="Lets Go!"></a>Lets Go!</h1><h2 id="Acquirements"><a href="#Acquirements" class="headerlink" title="Acquirements"></a>Acquirements</h2>
+<h2 id="Contact-author"><a href="#Contact-author" class="headerlink" title="Contact author"></a>Contact author</h2><h1 id="Lets-Go"><a href="#Lets-Go" class="headerlink" title="Lets Go!"></a>Lets Go!</h1><h2 id="Acquirements"><a href="#Acquirements" class="headerlink" title="Acquirements"></a>Acquirements</h2>
           
         
       
@@ -817,7 +1043,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -839,7 +1065,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
