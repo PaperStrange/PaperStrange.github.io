@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/target_dis.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importance_20190210.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importances_part.png">
-<meta property="og:updated_time" content="2019-02-13T04:35:20.497Z">
+<meta property="og:updated_time" content="2019-02-13T09:52:16.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="a initial explore for Elo Merchant Category Recommendation, a kaggle competition">
 <meta name="twitter:description" content="Competition IntroductionIn Elo Merchant Category Recommendation competition, kagglers will develop algorithms to identify and serve the most relevant opportunities to individuals, by uncovering sign">
@@ -329,7 +329,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-13T12:35:20+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-13T17:52:16+08:00">
                 2019-02-13
               </time>
             
@@ -451,8 +451,10 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <h3 id="2-Feature-engineering-tricks"><a href="#2-Feature-engineering-tricks" class="headerlink" title="2. Feature engineering tricks"></a>2. Feature engineering tricks</h3><p>As discussed above, the feats in two datasets is far more sufficient to obtain a good submit score. For simplicity, new numberical feats are added by extraction from “first_active_month” using python package datetime. In detail, hour, day, month and year of each time data are obtained. What’s more, convert hour to string such as “morning” and convert month to string such as “March” are applied for further analysis below.</p>
 <p><a id="3"></a> <br></p>
 <h3 id="3-Results-evaluation-conclusion-and-discussion"><a href="#3-Results-evaluation-conclusion-and-discussion" class="headerlink" title="3. Results evaluation: conclusion and discussion"></a>3. Results evaluation: conclusion and discussion</h3><p>Same as what i did in the first section, some questions i found are reviewed and answered in this step. Generally, the more <code>good</code> questions are reviewed, the better understanding of model evaluation you gain.</p>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importance_20190210.png" width="500" align="center"><br><strong><center>Fig3: feature importance</center></strong></p>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importances_part.png" width="300" align="center"><br><strong><center>Fig4: part of feature importance extracted from “first_active_month”</center></strong></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importance_20190210.png" width="500" align="center"></p>
+<p><strong><center>Fig3: feature importance</center></strong></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importances_part.png" width="300" align="center"></p>
+<p><strong><center>Fig4: part of feature importance extracted from “first_active_month”</center></strong></p>
 <p>Take a further look at the Fig3, “first_active_month_elapsed_time_today” contributes most to the model prediction while “first_active_month_monthsession_January” contributes least. Among the feat extracted from date data shown in the Fig4, “first_active_month_elapsed_time_today” gains the most importance while the “first_active_month_monthsession_January” gain the least importance as well, which means valuable information hidden in “first_active_month”. Isn’t it a intersting finding? </p>
 <p>When we compare distribution training dataset and testing dataset of the same feat, here comes new findings. “first_active_month_elapsed_time_today”, “first_active_month_elapsed_time_specific” shows measurable different distribution between training data and testing data, among which the first one is the feature picked by the above two questions. On the other hand, the left feats couldn’t provide considerable difference on data distribution between two datasets, which is relatively consistent with the result shown in feat importance figure. More details could refer to my github <a href="https://github.com/PaperStrange/Udacity_records.git" target="_blank" rel="noopener">here</a>.</p>
 <h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next?"></a>What’s next?</h2><p>Up to now, we have briefly went through the whole data processing procedure. For me, next i’d like to add more feats by considering other files provided by this competition. Also, it is advisable for you to start a mining journal following exsited kernel which is listed in the below references. By the way, there is a few questions that i want to share with you which i think maybe desirble to be devoted to:</p>
