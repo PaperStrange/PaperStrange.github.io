@@ -1947,7 +1947,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3e63c8;
+  background: #5011dd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2759,6 +2759,7 @@ pre .javascript .function {
 }
 @media (max-width: 767px) {
   .header-inner {
+    padding: 0px;
     position: relative;
     width: auto;
     border-radius: initial;
@@ -3119,5 +3120,7 @@ pre .javascript .function {
 body {
   background: url("/images/background.jpg");
   background-attachment: fixed;
-  background-position: 50% 50%;
+  background-position: center;
+  width: 50%;
+  display: table;
 }
