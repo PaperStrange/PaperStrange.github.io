@@ -325,8 +325,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-13T17:52:16+08:00">
-                2019-02-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-14T14:02:12+08:00">
+                2019-02-14
               </time>
             
           </span>
@@ -397,7 +397,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  932
+                  857
                 </span>
               
 
@@ -430,8 +430,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <h2 id="About-this-blog"><a href="#About-this-blog" class="headerlink" title="About this blog"></a>About this blog</h2><p>Using a <a href="https://github.com/Microsoft/LightGBM" target="_blank" rel="noopener">LightGBM</a> model, this blog tries to dive into initial explore of training and testing datasets. New features are built by extracting numberical feat from <code>first active month</code> in order to recover some information from the time series.</p>
 <h2 id="Blog-Content"><a href="#Blog-Content" class="headerlink" title="Blog  Content"></a>Blog  Content</h2><ol>
 <li><a href="#1">Questions for better business understanding</a></li>
-<li><a href="#2">Feature engineering tricks</a></li>
-<li><a href="#3">Results evaluation: conclusion and discussion</a></li>
+<li><a href="#2">Results evaluation: conclusion and discussion</a></li>
+<li><a href="#3">References</a></li>
 </ol>
 <p><a id="1"></a> <br></p>
 <h3 id="1-Questions-for-better-business-understanding"><a href="#1-Questions-for-better-business-understanding" class="headerlink" title="1. Questions for better business understanding"></a>1. Questions for better business understanding</h3><p>At the beginning, a good understanding of data is always appreciable. In this blog we only consider two datasets: training dataset and testing dataset. By asking  questions, here is what i find:</p>
@@ -446,9 +446,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <p>A: This question aims at assuring the application of customer loyalty prediction model more controllable and scalable.</p>
 <p>Take a look at the Fig 2, the feat column “target”, the modeling target, is stored in numberical data type which means several loss function like MSE could be used for evaluation. By checking its distribution, there are outliers around -30 found in modeling target which means not all target data is convincible.</p>
 <p><a id="2"></a> <br></p>
-<h3 id="2-Feature-engineering-tricks"><a href="#2-Feature-engineering-tricks" class="headerlink" title="2. Feature engineering tricks"></a>2. Feature engineering tricks</h3><p>As discussed above, the feats in two datasets is far more sufficient to obtain a good submit score. For simplicity, new numberical feats are added by extraction from “first_active_month” using python package datetime. In detail, hour, day, month and year of each time data are obtained. What’s more, convert hour to string such as “morning” and convert month to string such as “March” are applied for further analysis below.</p>
-<p><a id="3"></a> <br></p>
-<h3 id="3-Results-evaluation-conclusion-and-discussion"><a href="#3-Results-evaluation-conclusion-and-discussion" class="headerlink" title="3. Results evaluation: conclusion and discussion"></a>3. Results evaluation: conclusion and discussion</h3><p>Same as what i did in the first section, some questions i found are reviewed and answered in this step. Generally, the more <code>good</code> questions are reviewed, the better understanding of model evaluation you gain.</p>
+<h3 id="2-Results-evaluation-conclusion-and-discussion"><a href="#2-Results-evaluation-conclusion-and-discussion" class="headerlink" title="2. Results evaluation: conclusion and discussion"></a>2. Results evaluation: conclusion and discussion</h3><p>Same as what i did in the first section, some questions i found are reviewed and answered in this step. Generally, the more <code>good</code> questions are reviewed, the better understanding of model evaluation you gain.</p>
 <p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importance_20190210.png" width="500" align="center"></p>
 <p><strong><center>Fig3: feature importance</center></strong></p>
 <p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/importances_part.png" width="300" align="center"></p>
@@ -463,7 +461,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 </li>
 </ul>
 <p>Hope everyone has a magic data miner time! :)</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<p><a id="3"></a> <br></p>
+<h2 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h2><ol>
 <li><p><a href="https://www.kaggle.com/chauhuynh/my-first-kernel-3-699/" target="_blank" rel="noopener">My first kernel (3.699) by Chau Ngoc Huynh</a></p>
 </li>
 <li><p><a href="https://www.kaggle.com/denzo123/a-closer-look-at-date-variables" target="_blank" rel="noopener">A Closer Look at Date Variables by Robin Denz</a></p>
