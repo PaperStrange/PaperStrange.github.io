@@ -329,7 +329,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T21:26:08+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T22:03:52+08:00">
                 2019-06-18
               </time>
             
@@ -401,7 +401,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,184
+                  1,182
                 </span>
               
 
@@ -458,23 +458,23 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <h4 id="Question-2-1-How-“big”-is-the-datasets"><a href="#Question-2-1-How-“big”-is-the-datasets" class="headerlink" title="Question 2.1: How “big” is the datasets?"></a>Question 2.1: How “big” is the datasets?</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/datasets_scale_memory_Udacity_final_project.png" width="300" align="center"></p>
 <p><strong><center>Fig1: scale and memory usage of two datasets</center></strong></p>
 <p>Answer: As it is shown in Fig1, two datasets contains about 100w cases and around 600 Mb memory use in total, which do not agree with the common definition of “big data”</p>
-<h4 id="Question-2-2-How-imbalanced-is-the-datasets"><a href="#Question-2-2-How-imbalanced-is-the-datasets" class="headerlink" title="Question 2.2: How imbalanced is the datasets?"></a>Question 2.2: How imbalanced is the datasets?</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/imbalance_checking_Udacity_final_project.png.png" width="300" align="center"></p>
+<h4 id="Question-2-2-How-imbalanced-is-the-datasets"><a href="#Question-2-2-How-imbalanced-is-the-datasets" class="headerlink" title="Question 2.2: How imbalanced is the datasets?"></a>Question 2.2: How imbalanced is the datasets?</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/imbalance_checking_Udacity_final_project.png" width="600" align="center"></p>
 <p><strong><center>Fig2: a sample feature distribution of two datasets</center></strong></p>
 <p>Answer: As it is shown in Fig2, the comparison graphs of a sample feature show that the distribution ratio of each feature in azdias and customers data are relatively small (commonly less than 6:1) which means imbalance problem could be omitted safely (Mpre details could be referred to the first part of <em>Step 0.3.1: Visiualize Checkings</em> in this notebook <a href="https://github.com/PaperStrange/Udacity_records/blob/DS_term2/DS_term2_project-final/Arvato%20Project%20Workbook.ipynb" target="_blank" rel="noopener">here</a>).</p>
 <h4 id="Question-2-3-How-to-deal-with-small-sample-data"><a href="#Question-2-3-How-to-deal-with-small-sample-data" class="headerlink" title="Question 2.3: How to deal with small sample data?"></a>Question 2.3: How to deal with small sample data?</h4><p>Answer: Generally, several methods such as over-sampling, under-sampling and Synthetic Data could be choosed. For this project, small sample data is checked in <em>Step 0.3.2: Assess Missing Data</em> of the same notebook noted above to determine whether to keep or not.</p>
 <p><a id="2"></a> <br></p>
 <h3 id="2-Result-evaluation"><a href="#2-Result-evaluation" class="headerlink" title="2. Result evaluation"></a>2. Result evaluation</h3><p>This section mainly includes two parts: discussion of findings by unsupervised learning and supervised learning. </p>
-<h4 id="unsupervised-learning-result"><a href="#unsupervised-learning-result" class="headerlink" title="unsupervised learning result"></a>unsupervised learning result</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/feature_weight_azdias_Udacity_final_project.png" width="500" align="center"></p>
+<h4 id="unsupervised-learning-result"><a href="#unsupervised-learning-result" class="headerlink" title="unsupervised learning result"></a>unsupervised learning result</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/feature_weight_azdias_Udacity_final_project.png" width="600" align="center"></p>
 <p><strong><center>Fig3: feature weight of the first principal components for azdias dataset</center></strong></p>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/feature_weight_customers_Udacity_final_project.png" width="500" align="center"></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/feature_weight_customers_Udacity_final_project.png" width="600" align="center"></p>
 <p><strong><center>Fig4: feature weight of the first principal components for customers dataset</center></strong></p>
 <p>For azdias data shown in Fig3,  all positive contributed feats of the first three components come from feature “CAMEO_DEU_2015”.  Futhermore, referring to the description excel file, the first component corresponds to the <em>Fine Management</em> group. For customers data shown in Fig4,  all positive contributed feats of the first three components come from feature “CAMEO_DEU_2015” too. Referring to the description excel file, the first component corresponds to the <em>Fine Management</em> group. Compared with azdias data, both analysis of the first components include the <strong>Fine Management</strong> and <strong>City Nobility</strong> group, which means the considerable importance behind the feature “CAMEO_DEU_2015” and its derived features.</p>
 <hr>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/overrepresented_and_underrepresented_cluster_distribution_in_two_datasets_Udacity_final_project.png" width="300" align="center"></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/overrepresented_and_underrepresented_cluster_distribution_in_two_datasets_Udacity_final_project.png" width="600" align="center"></p>
 <p><strong><center>Fig5: overrepresented and underrepresented cluster distribution differences in two datasets </center></strong></p>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/people_type_of_overrepresented_cluster_Udacity_final_project.png" width="500" align="center"></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/people_type_of_overrepresented_cluster_Udacity_final_project.png" width="300" align="center"></p>
 <p><strong><center>Fig6: people type of overrepresented clusters</center></strong></p>
-<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/people_type_of_underrepresented_cluster_Udacity_final_project.png" width="500" align="center"></p>
+<p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/people_type_of_underrepresented_cluster_Udacity_final_project.png" width="300" align="center"></p>
 <p><strong><center>Fig7: people type of underrepresented clusters</center></strong></p>
 <p>As it is shown in Fig5, which cluster or clusters are overrepresented in the customer dataset compared to the general population and which are underrepresented are obtained here. The threshold used here is 4%, which means if the ratio difference of a cluster by azdias minus customer data is larger than 4%, it belongs to the underrepresented type; in opposite, if the ratio difference of a cluster by customer minus azdias data is larger than 4%, it belongs to the overrepresented type.  Following this ruler, underrepresented clusters include cluster 13 and cluster 20, overrepresented clusters include cluster 2 and cluster 5. </p>
 <p>To investigate deeply,  people types of two kings of cluster are shown in Fig6 and Fig7 seperatively. For overrepresented cluster type shown in Fig6, cluster 2  and 5 show that people with <strong>Active Retirement(“CAMEO_DEU_2015_5F”)</strong>, <strong>Long-established(“CAMEO_DEU_2015_6C”)</strong>, <strong>Frugal Aging(“CAMEO_DEU_2015_6F”)</strong>, and <strong>First Shared Apartment(“CAMEO_DEU_2015_9A”)</strong> or high transactional activity on <strong>product group DIGITAL SERVICES(“D19_DIGIT_SERV_RZ”)</strong>,  <strong>BANKS in the last 24 months(“D19_BANKEN_ANZ_24”)</strong> and <strong>INSURANCE in the last 12 months(“D19_VERSI_ANZ_12”)</strong> are more likely to become customer. However, for underrepresented cluster type shown in Fig7,  cluster 13 and cluster 20 show that people with high transactional activity on <strong>the last transaction for the segment telecommunication ONLINE(“D19_TELKO_ONLINE_DATUM”)</strong>, <strong>BANKS in the last 12 months(“D19_BANKEN_ANZ_12”)</strong> and <strong>the product group GARDENING PRODUCTS(“D19_GARTEN”)</strong> are less likely to become customers. </p>
@@ -482,13 +482,13 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <p><strong><center>Fig8: feature importance</center></strong></p>
 <p>Take a further look at the Fig8, <strong>“D19_SOZIALES”</strong> contributes most to the model prediction while <strong>“W_KEIT_KIND_HH”</strong> contributes least. Checking the fetures found in Fig3, 4 and Fig 6, 7, theses features don’t contribute enough as expected, which means there is much room for improvement for unsupervised learning part.</p>
 <p><a id="3"></a> <br></p>
-<h2 id="3-What’s-next"><a href="#3-What’s-next" class="headerlink" title="3. What’s next?"></a>3. What’s next?</h2><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/kaggle_submission.png" width="300" align="center"></p>
+<h2 id="3-What’s-next"><a href="#3-What’s-next" class="headerlink" title="3. What’s next?"></a>3. What’s next?</h2><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/kaggle_submission.png" width="400" align="center"></p>
 <p><strong><center>Fig9: competition rank up to now</center></strong></p>
 <p>Up to now, we have briefly went through the main parts of data analysis procedure. Fig9 shows the recent rank i have reached. For me, selecting feats by considering better cluster algorithms is more proper than adjusting the hyper parameters of supervised learning to obtain a higher score. Also, it is advisable for you to start a kaggle journal following exsited great kernels. By the way, there is a few questions that i want to share with you which i think maybe desirble to be devoted to:</p>
 <ul>
 <li><p>How many feats are suitable? Generally, the more feats you obtain may not guarantee higer submit score you expect while the more computer power you are expectd to have.</p>
 </li>
-<li><p>For this model, missing value would not lead to the failure of LightGBM. If keep using LightGBM, how to deal with missing values? Imputer or just keep by?</p>
+<li><p>Missing value would not lead to the failure of LightGBM. If keep using LightGBM, how to deal with missing values? What about changing a supervised model?</p>
 </li>
 </ul>
 <p>Hope everyone has a magic data miner time! :)</p>
