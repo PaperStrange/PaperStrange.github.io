@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/people_type_of_underrepresented_cluster_Udacity_final_project.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/lgbm_importances_Udacity_final_project.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/kaggle_submission.png">
-<meta property="og:updated_time" content="2019-06-19T06:28:56.834Z">
+<meta property="og:updated_time" content="2019-06-20T02:08:48.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Explore findings on Udacity Final Project for Data Scientist Nanodegree">
 <meta name="twitter:description" content="Project IntroductionIn this Udacity project, demographics data for customers of a mail-order sales company in Germany are analyzed, comparing it against demographics information for the general popul">
@@ -338,8 +338,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-19T14:28:56+08:00">
-                2019-06-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-20T10:08:48+08:00">
+                2019-06-20
               </time>
             
           </span>
@@ -410,7 +410,7 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,680
+                  1,687
                 </span>
               
 
@@ -457,7 +457,8 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <li><a href="#4">What is next?</a></li>
 </ol>
 <p><a id="1"></a> <br></p>
-<h3 id="1-Questions-for-better-business-understanding"><a href="#1-Questions-for-better-business-understanding" class="headerlink" title="1. Questions for better business understanding"></a>1. Questions for better business understanding</h3><p>At the beginning, a good understanding of data is always appreciable. By asking  questions, here is what i find. For business understanding:</p>
+<h3 id="1-Questions-for-better-business-understanding"><a href="#1-Questions-for-better-business-understanding" class="headerlink" title="1. Questions for better business understanding"></a>1. Questions for better business understanding</h3><p>At the beginning, a good understanding of data is always appreciable. By asking  questions, here is what i find. </p>
+<p>For business understanding:</p>
 <h4 id="Question-1-1-Before-model-is-applied-how-to-design-an-online-experiment-to-show-its-effectiveness"><a href="#Question-1-1-Before-model-is-applied-how-to-design-an-online-experiment-to-show-its-effectiveness" class="headerlink" title="Question 1.1: Before model is applied, how to design an online experiment to show its effectiveness?"></a>Question 1.1: Before model is applied, how to design an online experiment to show its effectiveness?</h4><p>Answer: An online experiment mainly is used to give a proof of what model predicts. Thus, the design of online experiment relies on the model prediction or prediction requirements. By following these constraints and design procedures, an online experiment could be achieved. Then, compare the experiment results with model predictions to make finnal decisions on the deploy of model.</p>
 <h4 id="Question-1-2-If-model-is-applied-and-operates-normally-how-to-quantify-and-evaluate-the-net-income-from-model"><a href="#Question-1-2-If-model-is-applied-and-operates-normally-how-to-quantify-and-evaluate-the-net-income-from-model" class="headerlink" title="Question 1.2: If model is applied and operates normally, how to quantify and evaluate the net income from model?"></a>Question 1.2: If model is applied and operates normally, how to quantify and evaluate the net income from model?</h4><p>Answer: Directly, the income by purchase increase in relative ares where model is deployed should be considered as earnings. Meanwhile, the cost of deploy such as computer power, maintenance and new employees should be treated as cost. Combine two types of income, we could obtain the net income.</p>
 <h4 id="Question-1-3-After-model-operates-for-a-long-time-how-to-deal-with-the-differences-between-the-model-predictions-and-reviews-by-customers"><a href="#Question-1-3-After-model-operates-for-a-long-time-how-to-deal-with-the-differences-between-the-model-predictions-and-reviews-by-customers" class="headerlink" title="Question 1.3: After model operates for a long time, how to deal with the differences between the model predictions and reviews by customers?"></a>Question 1.3: After model operates for a long time, how to deal with the differences between the model predictions and reviews by customers?</h4><p>Answer: After deploying, cause there is no 100% accuracy for any model, there must exist some disagree cases or reviews. These cases could be added directly to balance original dataset. Meanwhile, if computer power is enough, dynamic programming could be applied to treat model bias automatically, which would save workload.</p>
@@ -481,8 +482,14 @@ color="4,255,0" opacity='1.0' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <li><p>Finally, missing data in each row is assessed. For azdias data, the data with lots of missing values are qualitatively different with data that has few or no missing values. The same finding is found in customers data. As a result, no drop would be taken and a special notice on those data would be added.</p>
 </li>
 </ul>
-<h4 id="2-2-Feature-engineering"><a href="#2-2-Feature-engineering" class="headerlink" title="2.2 Feature engineering"></a>2.2 Feature engineering</h4><p>Feature engineering done in this project mainly includes select and re-encode binary features and multi-class features, engineer mixed-type features. For the first part, binary feature values are mapped into {0, 1}. Multi-class feature “CAMEO_DEUG_2015” is operated individually to extract the stored century time information. Apart from it, other multi-class features are parased by pandas attribute “.get_dummies” with the first dummy dropped to avoid miscellaneous information. For the second part, a simple algorithm to detect mixed type features is applied by searching key words like “mix”, “+” in the “Description” column in the <em>DIAS Information Levels - Attributes 2017.xlsx</em> file. What should be mentioned here is that not all features could be searched in this excel file, thus the prior knowledge of the unsupervised learning project finished before is used here. Feature “PRAEGENDE_JUGENDJAHRE” and feature “CAMEO_INTL_2015” are regared as mixed feature and operated using the desription in the same excel file shown before.</p>
-<p>Besides the two techiques mentioned above, feature scaling is applied to get a full, clean data. More details could refer to this notebook <a href="https://github.com/PaperStrange/Udacity_records/blob/DS_term2/DS_term2_project-final/Arvato%20Project%20Workbook.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h4 id="2-2-Feature-engineering"><a href="#2-2-Feature-engineering" class="headerlink" title="2.2 Feature engineering"></a>2.2 Feature engineering</h4><p>Feature engineering done in this project mainly includes select and re-encode binary features and multi-class features, engineer mixed-type features. </p>
+<ul>
+<li><p>For the first part, binary feature values are mapped into {0, 1}. Multi-class feature “CAMEO_DEUG_2015” is operated individually to extract the stored century time information. Apart from it, other multi-class features are parased by pandas attribute “.get_dummies” with the first dummy dropped to avoid miscellaneous information. </p>
+</li>
+<li><p>For the second part, a simple algorithm to detect mixed type features is applied by searching key words like “mix”, “+” in the “Description” column in the <em>DIAS Information Levels - Attributes 2017.xlsx</em> file. What should be mentioned here is that not all features could be searched in this excel file, thus the prior knowledge of the unsupervised learning project finished before is used here. Feature “PRAEGENDE_JUGENDJAHRE” and feature “CAMEO_INTL_2015” are regared as mixed feature and operated using the desription in the same excel file shown before.</p>
+</li>
+</ul>
+<p>Besides the two techiques mentioned above, feature scaling is applied to get a full, clean data. More details could refer to “Step 0.3.3: Feature Engineerings” in this notebook <a href="https://github.com/PaperStrange/Udacity_records/blob/DS_term2/DS_term2_project-final/Arvato%20Project%20Workbook.ipynb" target="_blank" rel="noopener">here</a>.</p>
 <p><a id="3"></a> <br></p>
 <h3 id="3-Result-evaluation"><a href="#3-Result-evaluation" class="headerlink" title="3. Result evaluation"></a>3. Result evaluation</h3><p>This section mainly includes two parts: discussion of findings by unsupervised learning and supervised learning. </p>
 <h4 id="unsupervised-learning-result"><a href="#unsupervised-learning-result" class="headerlink" title="unsupervised learning result"></a>unsupervised learning result</h4><p><img src="https://raw.githubusercontent.com/PaperStrange/PaperStrange.github.io/master/uploads/feature_weight_azdias_Udacity_final_project.png" width="600" align="center"></p>
